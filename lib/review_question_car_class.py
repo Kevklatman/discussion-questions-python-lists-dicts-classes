@@ -2,7 +2,20 @@
 
 
 class Car:
-    pass
+
+    all = []
+
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+        Car.all.append(self)
+
+    def drive(self):
+        print("VROOOOOOOOOOOOM!")
+
+    @classmethod
+    def brake(cls):
+        print("SCREEEECH!")
 
 
 volvo_lightning = Car("Volvo", "Lightning")
@@ -17,7 +30,7 @@ volvo_lightning.model
 yugo.drive()
 # => "VROOOOOOOOOOOOM!"
 
-Car.all
+print(Car.all)
 # => [<__main__.Car object at 0x1049247c0>, <__main__.Car object at 0x1049247c8>, <__main__.Car object at 0x1049247d6>]
 
 # BONUS:
